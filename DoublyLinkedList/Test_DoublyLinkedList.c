@@ -1,6 +1,6 @@
 #include "DoublyLinkedList.h"
 
-int main( void )
+int main_doublyLinkedList( void )
 {
     int   i       = 0;
     int   Count   = 0;
