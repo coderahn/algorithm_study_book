@@ -16,3 +16,8 @@ This repository contains my learnings from the book '뇌를 자극하는 알고�
 ### 3)환형 링크드 리스트
   - 더블 링크드 리스트와 비슷하지만 Head와 Tail이 연결된 구조
   - 꼬리를 무는 용을 생각(Head->PrevNode == Tail, Tail->NextNode == Head)
+
+### 4)스택
+  - LIFO구조
+  - 배열로 만드는 스택, 링크드리스트로 만드는 스택이 있음
+  - 자동메모리도 스택 구현(변수 선언 후 자동 해제해주는 알고리즘)
