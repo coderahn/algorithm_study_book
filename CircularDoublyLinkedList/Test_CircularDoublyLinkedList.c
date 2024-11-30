@@ -1,6 +1,6 @@
 #include "CircularDoublyLinkedList.h"
 
-int main(void) {
+int main_CircularDoublyLinkedList(void) {
 	int i = 0;
 	int Count = 0;
 	Node* List = NULL;
