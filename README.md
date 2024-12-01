@@ -21,3 +21,10 @@ This repository contains my learnings from the book '뇌를 자극하는 알고�
   - LIFO구조
   - 배열로 만드는 스택, 링크드리스트로 만드는 스택이 있음
   - 자동메모리도 스택 구현(변수 선언 후 자동 해제해주는 알고리즘)
+  - (1)배열 스택
+    - 스택 구조체에 Capacity(용량) 필요
+    - 크기를 자동으로 늘려주지 못하며 용량 선언한 만큼의 스택 사용
+  - (2)링크드리스트 스택
+    - 크기를 자유롭게 늘릴 수 있음(Capacity 불필요)
+    - 스택 구조체에 List(헤드), Top(테일)만 필요
+      - cf)Tail이 없어도 List->NextNode로 찾아갈 수 있으나 성능 이슈로 Top이 있어야 함

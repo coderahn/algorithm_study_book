@@ -1,6 +1,6 @@
 #include "ArrayStack.h"
 
-int main(void) {
+int main_ArrayStack(void) {
     int i = 0;
     ArrayStack* Stack = NULL;
 
