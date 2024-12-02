@@ -1,6 +1,6 @@
 #include "LinkedListStack.h"
 
-int main(void) {
+int main_LinkedListStack(void) {
     int i = 0;
     int Count = 0;
     Node* Popped = NULL;
