@@ -28,3 +28,14 @@ This repository contains my learnings from the book '뇌를 자극하는 알고�
     - 크기를 자유롭게 늘릴 수 있음(Capacity 불필요)
     - 스택 구조체에 List(헤드), Top(테일)만 필요
       - cf)Tail이 없어도 List->NextNode로 찾아갈 수 있으나 성능 이슈로 Top이 있어야 함
+
+### 5)큐
+   - FIFO구조
+   - 선입선출
+   - push->enqueue, pop->dequeue
+   - 배열로 처리하는 순환큐
+     - 시작과 끝을 연결하는 큐
+     - 전단(Front), 후단(Rear) 포인터가 필요함
+     - 후단과 전단이 같으면 비어있는 것을 의미
+     - 후단이 전단보다 1 작으면 FULL 상태 의미
+     - 그래서 후단은 실제 후단보다 1큼
