@@ -14,11 +14,12 @@ typedef struct tagCircularQueue {
 	int Capacity;
 	int Front;
 	int Rear;
+	Node* Nodes;
 } CircularQueue;
 
 void CQ_CreateQueue(CircularQueue** Queue, int Capacity);
 void CQ_DestroyQueue(CircularQueue* Queue);
-void CQ_Enqueue(CircularQueue* Queue);
+void CQ_Enqueue(CircularQueue* Queue, ElementType Data);
 
 ElementType CQ_Dequeue(CircularQueue* Queue);
 
