@@ -39,3 +39,6 @@ This repository contains my learnings from the book '뇌를 자극하는 알고�
      - 후단과 전단이 같으면 비어있는 것을 의미
      - 후단이 전단보다 1 작으면 FULL 상태 의미
      - 그래서 후단은 실제 후단보다 1큼
+   - 링크드 리스트를 이용하는 링크드 큐
+     - 순환큐보다 직관적이고 쉬움
+     - 성능적으로는 순환큐가 더 좋다고 함(링크드큐는 노드 생성, 삭제시 malloc호출) cf)Queue->Rear->NextNode = NewNode; //내부적으로 malloc등 호출하여 동적 메모리 할당
