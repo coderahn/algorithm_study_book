@@ -56,9 +56,48 @@ This repository contains my learnings from the book '뇌를 자극하는 알고�
     - N-링크 표현법: 노드의 차수가 N이면 N개 링크를 가지고 있어서 이 링크들이 각각 자식 노드를 가리키도록 구성하는 방법
     - 왼쪽 자식-오른쪽 형제(LCRS) 표현법: 왼쪽에는 자식, 오른쪽에는 형제 포인터 갖는 노드 구조
       - cf)부모의 모든 자식은 한 줄로 연결된 형제 관계 유지. 부모는 항상 첫번째 자식(LeftChild)만 알고 있으며 나머지 자식들은 첫번째 자식의 오른쪽형제(RightSibling) 체인을 통해 연결.
-      
+
   - 이진트리(Binary Tree)
     - 하나의 노드가 최대 2개의 자식 노드를 가짐
     - 탐색방식에 따라 전위순회, 중위순회, 후위순회
     - 검색엔진,인덱스 등 다양하게 활용
     - 재귀함수로 구현
+
+  - 수식트리(Expression Tree)
+    - 연산자, 피연산자로 만든 트리
+    - 연산자는 루트 노트 또는 가지 노드이다.
+    - 후위표기식을 기반으로 만드는 트리
+      - 후위표기식 뒤에서부터 토큰을 읽어나가면서 계산
+
+## 2부.알고리즘
+
+---
+
+## 기타정리(TIL)
+
+### 241208(일)
+* memset: 메모리 블록을 특정 값으로 초기화
+
+```c
+// C 언어 코드 예시
+#include <stdio.h>
+
+int main() {
+    //트리구조체 선언되어있다고 가정(Tree->Data = 2)
+    
+    char Temp[2];
+
+    memset(Temp, 0, sizeof(Temp)); //Temp에 0으로 값 초기화
+    Temp[0] = Tree->Data; //Temp[0]에 값 세팅, Temp[1]은 '\0'으로 문자열 종료 문자
+}
+```
+
+* visual studio code(vscode) pull 오류
+
+- 저번에 다른 컴퓨터로 readme를 github에서 수정
+- vscode에서 pull 받으려는데 오류
+    - 로컬,리모트 서로 다른 커밋을 갖고 있기 때문
+- ```shell git config pull.rebase false  # 병합 방식 사용 ```
+- 다시 pull하면 처리 완료
+- 충돌난 부분 수정 해야함
+    - Accept Incomming Change, Accept Current Change있는데 전자 누르면 원격꺼 덮어쓸 수 있음
