@@ -76,7 +76,8 @@ This repository contains my learnings from the book '뇌를 자극하는 알고�
 ## 기타정리(TIL)
 
 ### 241208(일)
-* memset: 메모리 블록을 특정 값으로 초기화
+
+#### memset: 메모리 블록을 특정 값으로 초기화
 
 ```c
 // C 언어 코드 예시
@@ -92,7 +93,7 @@ int main() {
 }
 ```
 
-* visual studio code(vscode) pull 오류
+#### visual studio code(vscode) pull 오류
 
 저번에 다른 컴퓨터로 readme를 github에서 수정<br>
 vscode에서 pull 받으려는데 오류<br>
