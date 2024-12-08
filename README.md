@@ -94,10 +94,10 @@ int main() {
 
 * visual studio code(vscode) pull 오류
 
-- 저번에 다른 컴퓨터로 readme를 github에서 수정
-- vscode에서 pull 받으려는데 오류
-    - 로컬,리모트 서로 다른 커밋을 갖고 있기 때문
-- ```shell git config pull.rebase false  # 병합 방식 사용 ```
-- 다시 pull하면 처리 완료
-- 충돌난 부분 수정 해야함
-    - Accept Incomming Change, Accept Current Change있는데 전자 누르면 원격꺼 덮어쓸 수 있음
+저번에 다른 컴퓨터로 readme를 github에서 수정
+vscode에서 pull 받으려는데 오류
+로컬,리모트 서로 다른 커밋을 갖고 있기 때문
+```shell git config pull.rebase false  # 병합 방식 사용 ```
+다시 pull하면 처리 완료
+충돌난 부분 수정 해야함
+  - Accept Incomming Change, Accept Current Change있는데 전자 누르면 원격꺼 덮어쓸 수 있음
