@@ -13,7 +13,7 @@ typedef struct tagNode {
 } Node;
 
 //함수원형선언
-Node* DLL_CreateNdoe(ElementType NewData);
+Node* DLL_CreateNode(ElementType NewData);
 void DLL_DestroyNode(Node* Node);
 void DLL_AppendNode(Node** Head, Node* NewNode);
 void DLL_InsertAfter(Node* Current, Node* NewNode);
