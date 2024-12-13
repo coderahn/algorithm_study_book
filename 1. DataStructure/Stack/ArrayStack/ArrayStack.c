@@ -1,15 +1,15 @@
 #include "ArrayStack.h"
 
-void AS_CreateStack(ArrayStack** Stack, int Capacity) {
-    //Stack을 자유저장소에 생성
-    (*Stack) = (ArrayStack*)malloc(sizeof(ArrayStack)); 
+void AS_CreateStack(ArrayStack** Stack, int Capacity){
+    //스택 자유저장소 할당
+    (*Stack) = (ArrayStack*)malloc(sizeof(ArrayStack));
 
-    //입력된 Capacity만큼 노드를 자유저장소에 생성(Nodes는 자유저장소에 생성한 배열의 첫번째 요소를 가리킴)
-    (*Stack)->Nodes = (Node*)malloc(sizeof(sizeof(Node)*Capacity));
+    //노드 자유저장소 할당(Capacity만큼)
+    (*Stack)->Nodes = (Node*)malloc(sizeof(Node)*Capacity);
 
-    //Capacity 및 Top 초기화
-    (*Stack)->Top = 0;
+    //Capacity, Top 초기화
     (*Stack)->Capacity = Capacity;
+    (*Stack)->Top = 0;
 }
 
 void AS_DestroyStack(ArrayStack* Stack) {
@@ -19,8 +19,8 @@ void AS_DestroyStack(ArrayStack* Stack) {
 
 void AS_Push(ArrayStack* Stack, ElementType Data) {
     int Position = Stack->Top;
-    (Stack->Nodes[Position]).Data = Data;
 
+    Stack->Nodes[Position].Data = Data;
     Stack->Top++;
 }
 
@@ -44,9 +44,7 @@ int AS_IsEmpty(ArrayStack* Stack) {
     return (Stack->Top == 0);
 }
 
-//스택 생성시 정한 용량이 가득차있는지 체크
 int AS_IsFull(ArrayStack* Stack) {
-    //Stack->Top-1 > Capacity면?? 가득차다
-    return Stack->Top >= Stack->Capacity;
+    //capacity 3이면 3개만 들어갈 수 있음. Top이 3이면 1,2,3 이면 3개 들어간 것. 여기서 풀
+    return Stack->Capacity == Stack->Top;
 }
-
