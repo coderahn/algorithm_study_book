@@ -148,3 +148,14 @@ vscode에서 pull 받으려는데 오류<br>
 
 2)<br>
 C언어는 배열 사이즈 구하는 게 없음. sizeof 배열 / sizeof 배열[0] 이런식으로 구해야함<br>
+
+### 241214(토)
+
+1)<br>
+*링크드리스트 스택 만들 때, LLS_CreateNode(char* NewData)에서 strcpy(NewNode->Data, NewData) 이유<br>
+C언어에서 int, float등 기본형은 값복사 해서 써도 됨(NewNode->Data = NewData)<br>
+그러나 char*같은 포인터형을 쓸 때는 NewNode->Data = NewData같이 쓸 경우 Data와 NewData가 같은 주소를 참조<br>
+그럴경우 NewData변경시 Data가 변경되는 등의 문제가 발생함. strcpy로 새롭게 만들어 써야함(NewData값을 Data메모리공간에 복사)
+
+2)<br>
+*memmove 작동방식 파악 필요(생각한대로 안 동작함..)
