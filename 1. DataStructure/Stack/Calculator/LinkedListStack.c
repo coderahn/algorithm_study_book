@@ -2,7 +2,7 @@
 
 void LLS_CreateStack(LinkedListStack** Stack) {
     //스택을 자유저장소에 생성
-    (*Stack) = (LinkedListStack*)(sizeof(LinkedListStack));
+    (*Stack) = (LinkedListStack*)malloc(sizeof(LinkedListStack));
     (*Stack)->List = NULL;
     (*Stack)->Top = NULL; 
 }
