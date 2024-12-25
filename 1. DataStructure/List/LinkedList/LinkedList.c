@@ -111,3 +111,38 @@ Node* SLL_MoveToFront(Node** Head, int Target) {
 
     return Match;
 }
+
+//알고리즘(순차탐색-전위법)
+Node* SLL_Transpose(Node** Head, int Target) {
+    Node* Current = (*Head);
+    Node* PPrevious = NULL;
+    Node* Previous = NULL;
+    Node* Match = NULL;
+
+    while (Current != NULL) {
+        if (Current->Data == Target) {
+            Match = Current;
+            if (Previous != NULL) {
+                if (PPrevious != NULL) {
+                    PPrevious->NextNode = Current;
+                } else {
+                    (*Head) = Current;
+                }
+
+                Previous->NextNode = Current->NextNode;
+                Current->NextNode = Previous;
+            }
+            break;
+        }
+        else {
+            //현재값, 이전값, 이전의 이전값을 들고다녀야 교환시 연결 가능
+            if (Previous != NULL) {
+                PPrevious = Previous;
+            }
+            
+            Previous = Current;
+            Current = Current->NextNode;
+        }
+    }
+    return Match;
+}
