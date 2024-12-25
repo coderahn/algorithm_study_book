@@ -86,3 +86,28 @@ int SLL_GetNodeCount(Node* Head) {
 
     return Count;
 }
+
+//알고리즘(순차탐색-전진이동법)
+Node* SLL_MoveToFront(Node** Head, int Target) {
+    Node* Current = (*Head);
+    Node* Previous = NULL;
+    Node* Match = NULL;
+
+    while (Current != NULL) {
+        if (Current->Data == Target) {
+            Match = Current;
+
+            if (Previous != NULL) {
+                Previous->NextNode = Current->NextNode;
+                Current->NextNode = (*Head);
+                (*Head) = Current;
+            }
+            break;
+        } else {
+            Previous = Current;
+            Current = Current->NextNode;
+        }
+    }
+
+    return Match;
+}

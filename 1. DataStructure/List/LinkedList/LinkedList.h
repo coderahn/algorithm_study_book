@@ -21,4 +21,7 @@ void SLL_RemoveNode(Node** Head, Node* Remove);
 Node* SLL_GetNodeAt(Node* Head, int Location);
 int SLL_GetNodeCount(Node* Head);
 
+//함수 원형 선언(탐색 알고리즘)
+Node* SLL_MoveToFront(Node** Head, int Target);
+
 #endif

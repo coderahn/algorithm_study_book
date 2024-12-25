@@ -41,6 +41,9 @@ int main(void) {
         printf("List[%d] : %d\n", i, Current->Data);
     }
 
+    //순차탐색-전진이동법
+    printf("Search Completed: %d\n", SLL_MoveToFront(&List, 3000)->Data);
+
     //모든 노드를 메모리에서 제거
     printf("\nDestroying List...\n");
     for(i=0; i<Count; i++) {
@@ -51,6 +54,8 @@ int main(void) {
             SLL_DestroyNode(Current);
         }
     }
+
+    
 
     return 0;
 }
