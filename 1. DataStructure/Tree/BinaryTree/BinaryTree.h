@@ -11,7 +11,7 @@ typedef struct tagSBTNode {
     struct tagSBTNode* Right;
 
     ElementType Data;
-} SBTNode;
+}SBTNode;
 
 SBTNode* SBT_CreateNode(ElementType NewData);
 void SBT_DestroyNode(SBTNode* Node);

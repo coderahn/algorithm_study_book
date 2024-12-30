@@ -25,12 +25,11 @@ void SBT_DestroyTree(SBTNode* Node) {
     SBT_DestroyTree(Node->Right);
 
     //루트 노드 소멸
-    SBT_DestroyTree(Node);
+    SBT_DestroyNode(Node);
 }
 
-//전위 순회 출력
 void SBT_PreorderPrintTree(SBTNode* Node) {
-    if (Node == NULL) {
+    if (Node == NULL){
         return;
     }
 
@@ -39,13 +38,12 @@ void SBT_PreorderPrintTree(SBTNode* Node) {
 
     //왼쪽 하위 트리 출력
     SBT_PreorderPrintTree(Node->Left);
-    
+
     //오른쪽 하위 트리 출력
     SBT_PreorderPrintTree(Node->Right);
 }
 
-//중위 순회 출력
-void SBT_InorderPrintTree(SBTNode* Node) {
+void SBT_InorderPrintTree(SBTNode* Node){
     if (Node == NULL) {
         return;
     }
@@ -60,8 +58,7 @@ void SBT_InorderPrintTree(SBTNode* Node) {
     SBT_InorderPrintTree(Node->Right);
 }
 
-//후위 순회 출력
-void SBT_PostorderPrintTree(SBTNode* Node){
+void SBT_PostorderPrintTree(SBTNode* Node) {
     if (Node == NULL) {
         return;
     }

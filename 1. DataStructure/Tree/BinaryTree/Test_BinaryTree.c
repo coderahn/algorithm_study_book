@@ -1,6 +1,6 @@
 #include "BinaryTree.h"
 
-int main(void){
+int main(void) {
     //畴靛 积己
     SBTNode* A = SBT_CreateNode('A');
     SBTNode* B = SBT_CreateNode('B');
@@ -24,16 +24,16 @@ int main(void){
     SBT_PreorderPrintTree(A);
     printf("\n\n");
 
-    printf("Inorder ...\n");
+    printf("Ineorder ...\n");
     SBT_InorderPrintTree(A);
     printf("\n\n");
-    
-    printf("Preorder ...\n");
+
+    printf("Postorder ...\n");
     SBT_PostorderPrintTree(A);
     printf("\n\n");
-    
-    //飘府家戈
+
+    //飘府 家戈
     SBT_DestroyTree(A);
-    
+
     return 0;
-} 
+}
