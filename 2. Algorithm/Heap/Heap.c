@@ -6,7 +6,7 @@ Heap* HEAP_Create(int InitialSize) {
     NewHeap->UsedSize = 0;
     NewHeap->Nodes = (HeapNode*)malloc(sizeof(HeapNode) * NewHeap->Capacity);
 
-    printf("size : %d\n", sizeof(HeapNode));
+    printf("size : %zu\n", sizeof(HeapNode));
 
     return NewHeap;
 }
@@ -50,6 +50,70 @@ void HEAP_SwapNodes(Heap* H, int Index1, int Index2) {
     free(Temp);
 }
 
+//최소값 삭제(루트 노드?)
 void HEAP_DeleteMin(Heap* H, HeapNode* Root){
-    //TODO..
+    int ParentPosition = 0;
+    int LeftPosition = 0;
+    int RightPosition = 0;
+
+    memcpy(Root, &H->Nodes[0], sizeof(HeapNode));
+    memset(&H->Nodes[0], 0, sizeof(HeapNode));
+
+    H->UsedSize--;
+    HEAP_SwapNodes(H, 0, H->UsedSize);
+
+    LeftPosition = HEAP_GetLeftChild(0);
+    RightPosition = LeftPosition + 1;
+
+    while (1) {
+        int SelectedChild = 0;
+
+        //부모노드의 자식노드가 없다는 의미로 반복문 종료(부모노드가 잎노드)
+        if (LeftPosition >= H->UsedSize) {
+            break;
+        }
+
+        //부모노드의 자식노드가 없다는 의미로 반복문 종료(부모노드가 잎노드)
+        if (RightPosition >= H->UsedSize) {
+            SelectedChild = LeftPosition;
+        } else {
+            if (H->Nodes[LeftPosition].Data > H->Nodes[RightPosition].Data) {
+                SelectedChild = RightPosition;
+            } else {
+                SelectedChild = LeftPosition;
+            }
+        }
+
+        if (H->Nodes[SelectedChild].Data < H->Nodes[ParentPosition].Data) {
+            HEAP_SwapNodes(H, ParentPosition, SelectedChild);
+            ParentPosition = SelectedChild;
+        } else {
+            break;
+        }
+
+        LeftPosition = HEAP_GetLeftChild(ParentPosition);
+        RightPosition = LeftPosition + 1;
+    }
+
+    if (H->UsedSize < (H->Capacity / 2)) {
+        H->Capacity /= 2;
+        H->Nodes = (HeapNode*)realloc(H->Nodes, sizeof(HeapNode) * H->Capacity);
+    }
+}
+
+int HEAP_GetParent(int Index) {
+    return (int) ((Index - 1) / 2);
+}
+
+int HEAP_GetLeftChild(int Index) {
+    return (2 * Index) + 1;
+}
+
+void HEAP_PrintNodes(Heap* H) {
+    int i = 0;
+    for (i=0; i<H->UsedSize; i++) {
+        printf("%d ", H->Nodes[i].Data);
+    }
+
+    printf("\n");
 }
