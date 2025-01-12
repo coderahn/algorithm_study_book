@@ -32,5 +32,5 @@ void SHT_DestroyHashTable(HashTable* HT) {
 
 //해시알고리즘(나눗셈법)으로 해시 생성
 int SHT_Hash(KeyType Key, int TableSize) {
-    return Key%TableSize;
+    return Key % TableSize;
 }
