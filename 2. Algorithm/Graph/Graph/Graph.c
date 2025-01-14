@@ -1,11 +1,11 @@
 #include "Graph.h"
 
 Graph* CreateGraph() {
-	Graph* graph = (Graph*)malloc(sizeof(Graph));
+	Graph* G = (Graph*)malloc(sizeof(Graph));
 	G->Vertices = NULL;
 	G->VertexCount = 0;
 
-	return graph;
+	return G;
 }
 
 void DestroyGraph(Graph* G) {
@@ -95,9 +95,9 @@ void PrintGraph(Graph* G) {
 	}
 
 	while (V != NULL) {
-		printf("%c : " + V->Data);
+		printf("%c : ", V->Data);
 
-		if ((E = V->AdjacencyList == NULL)) {
+		if ((E = V->AdjacencyList) == NULL) {
 			V = V->Next;
 			printf("\n");
 			continue;

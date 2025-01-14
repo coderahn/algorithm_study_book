@@ -33,7 +33,7 @@ Graph* CreateGraph();
 void DestroyGraph(Graph* G);
 
 Vertex* CreateVertex(ElementType Data);
-void DestroyVertex(Vertext* V);
+void DestroyVertex(Vertex* V);
 
 Edge* CreateEdge(Vertex* From, Vertex* Target, int Weight);
 void DestroyEdge(Edge* E);
