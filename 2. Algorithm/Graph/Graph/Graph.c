@@ -1,11 +1,11 @@
 #include "Graph.h"
 
 Graph* CreateGraph() {
-	Graph* G = (Graph*)malloc(sizeof(Graph));
-	G->Vertices = NULL;
-	G->VertexCount = 0;
+	Graph* graph = (Graph*)malloc(sizeof(Graph));
+	graph->Vertices = NULL;
+	graph->VertexCount = 0;
 
-	return G;
+	return graph;
 }
 
 void DestroyGraph(Graph* G) {
@@ -44,8 +44,8 @@ Edge* CreateEdge(Vertex* From, Vertex* Target, int Weight) {
 	Edge* E = (Edge*)malloc(sizeof(Edge));
 	E->From = From;
 	E->Target = Target;
-	E->Next = NULL;
 	E->Weight = Weight;
+	E->Next = NULL;
 
 	return E;
 }
@@ -57,27 +57,28 @@ void DestroyEdge(Edge* E) {
 void AddVertex(Graph* G, Vertex* V) {
 	Vertex* VertexList = G->Vertices;
 
+	//정점리스트가 비어있으면 그래프의 첫 정점으로 정점(V) 세팅
 	if (VertexList == NULL) {
 		G->Vertices = V;
 	}
 	else {
 		while (VertexList->Next != NULL) {
-			VertexList = VertexList->Next;
+			VertextList = VertexList->Next;
 		}
 
 		VertexList->Next = V;
-	}
 
-	V->Index = G->VertexCount++;
+		V->Index = G->VertexCount++;
+	}
 }
 
 void AddEdge(Vertex* V, Edge* E) {
+	//인접리스트(간선)이 없으면 바로 정점의 인접리스트 첫번째로 간선 붙여주기
 	if (V->AdjacencyList == NULL) {
 		V->AdjacencyList = E;
 	}
 	else {
 		Edge* AdjacencyList = V->AdjacencyList;
-
 		while (AdjacencyList->Next != NULL) {
 			AdjacencyList = AdjacencyList->Next;
 		}
