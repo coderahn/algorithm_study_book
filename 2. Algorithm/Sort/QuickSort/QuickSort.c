@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+//퀵소트 2번째 복습
 void Swap(int* A, int* B) {
     int Temp = *A;
     *A = *B;
