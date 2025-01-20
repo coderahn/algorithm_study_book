@@ -93,21 +93,25 @@ Node* SLL_MoveToFront(Node** Head, int Target) {
     Node* Previous = NULL;
     Node* Match = NULL;
 
-    while (Current != NULL) {
+    while(Current != NULL) {
         if (Current->Data == Target) {
             Match = Current;
 
             if (Previous != NULL) {
+                //이전노드와 현재노드의 다음노드 연결
                 Previous->NextNode = Current->NextNode;
+
+                //현재노드를 맨 앞으로(전진이동)
                 Current->NextNode = (*Head);
                 (*Head) = Current;
+    
             }
             break;
         } else {
             Previous = Current;
             Current = Current->NextNode;
         }
-    }
+    } 
 
     return Match;
 }
