@@ -104,7 +104,6 @@ Node* SLL_MoveToFront(Node** Head, int Target) {
                 //현재노드를 맨 앞으로(전진이동)
                 Current->NextNode = (*Head);
                 (*Head) = Current;
-    
             }
             break;
         } else {
