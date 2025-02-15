@@ -40,6 +40,8 @@ int main(void) {
 
     Count = DLL_GetNodeCount(List);
 
+    printf("Count!:%d\n", Count);
+
     for (i=0; i<Count; i++) {
         Current = DLL_GetNodeAt(List, 0);
 

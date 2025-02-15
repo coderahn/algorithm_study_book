@@ -5,8 +5,8 @@ Node* CDLL_CreateNode(ElementType NewData){
     Node* NewNode = (Node*)malloc(sizeof(Node));
 
     NewNode->Data = NewData;
-    NewNode->PrevNode = NULL;
     NewNode->NextNode = NULL;
+    NewNode->PrevNode = NULL;
 
     return NewNode;
 }
@@ -16,14 +16,13 @@ void CDLL_DestroyNode(Node* Node) {
     free(Node);
 }
 
-//노드 추가
+//노드 추가(자체구현 실패)
 void CDLL_AppendNode(Node** Head, Node* NewNode) {
     if ((*Head) == NULL) {
         (*Head) = NewNode;
         (*Head)->NextNode = (*Head);
         (*Head)->PrevNode = (*Head);
     } else {
-        //테일과 헤드 사이에 노드 추가
         Node* Tail = (*Head)->PrevNode;
 
         Tail->NextNode->PrevNode = NewNode;
@@ -45,24 +44,20 @@ void CDLL_InsertAfter(Node* Current, Node* NewNode){
     }
 }
 
+//노드 삭제
 void CDLL_RemoveNode(Node** Head, Node* Remove) {
     if ((*Head) == Remove) {
-        (*Head)->NextNode->PrevNode = Remove->PrevNode; //기존 헤드의 다음 이전 노드는 테일노드로
+        (*Head)->NextNode->PrevNode = Remove->PrevNode;
         (*Head)->PrevNode->NextNode = Remove->NextNode;
-
-        (*Head) = Remove->NextNode;
-
-        Remove->PrevNode = NULL;
-        Remove->NextNode = NULL;
     } else {
         Node* Temp = Remove;
 
         Remove->PrevNode->NextNode = Temp->NextNode;
         Remove->NextNode->PrevNode = Temp->PrevNode;
-
-        Remove->NextNode = NULL;
-        Remove->PrevNode = NULL;
     }
+
+    Remove->NextNode = NULL;
+    Remove->PrevNode = NULL;
 }
 
 //노드 탐색
@@ -78,7 +73,7 @@ Node* CDLL_GetNodeAt(Node* Head, int Location) {
 
 //노드 수 세기
 int CDLL_GetNodeCount(Node* Head) {
-    unsigned int Count = 0;
+    int Count = 0;
     Node* Current = Head;
 
     while (Current != NULL) {
@@ -94,17 +89,5 @@ int CDLL_GetNodeCount(Node* Head) {
 }
 
 void PrintNode(Node* _Node) {
-    if (_Node->PrevNode == NULL) {
-        printf("Prev: NULL");
-    } else {
-        printf("Prev: %d", _Node->PrevNode->Data);
-    }
-
-    printf(" Current: %d ", _Node->Data);
-
-    if (_Node->NextNode == NULL) {
-        printf("Next: NULL\n");
-    } else {
-        printf("Next: %d\n", _Node->NextNode->Data);
-    }
+   
 }
