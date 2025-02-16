@@ -1,16 +1,15 @@
 #include "LinkedListStack.h"
 
 void LLS_CreateStack(LinkedListStack** Stack) {
-    //스택을 자유저장소에 저장
     (*Stack) = (LinkedListStack*)malloc(sizeof(LinkedListStack));
     (*Stack)->List = NULL;
     (*Stack)->Top = NULL;
 }
 
 void LLS_DestroyStack(LinkedListStack* Stack) {
-    while (!LLS_IsEmpty(Stack)) {
-        Node* Popped = LLS_Pop(Stack);
-        LLS_DestroyNode(Popped);
+    while(Stack->List != NULL) {
+        Node* Pop = LLS_Pop(Stack);
+        LLS_DestroyNode(Pop);
     }
 
     free(Stack);
@@ -18,11 +17,12 @@ void LLS_DestroyStack(LinkedListStack* Stack) {
 
 Node* LLS_CreateNode(char* NewData){
     Node* NewNode = (Node*)malloc(sizeof(Node));
-    NewNode->Data = (char*)malloc(strlen(NewData) + 1); //문자열 끝을 나타내기 위해 항상 \0저장하기 때문에 +1
     
-    //Data가 포인터기 때문에 그냥 =로 넣으면 같은 메모리 참조로 NewData값 변경시 Data도 변경 위험
+    //문자열 복사
+    NewNode->Data = (char*)malloc(strlen(NewData) + 1);
     strcpy(NewNode->Data, NewData);
 
+    //NextNode 초기화
     NewNode->NextNode = NULL;
 
     return NewNode;
@@ -58,15 +58,12 @@ Node* LLS_Pop(LinkedListStack* Stack) {
     } else {
         Node* CurrentTop = Stack->List;
 
-        //헤드부터 올라가서 Top까지 찾아가며, 다음 노드가 Top이면, 멈춘다.(Top의 이전 노드까지만)
         while (CurrentTop != NULL && CurrentTop->NextNode != Stack->Top) {
             CurrentTop = CurrentTop->NextNode;
         }
-
+        CurrentTop->NextNode = NULL;
         Stack->Top = CurrentTop;
-        CurrentTop->NextNode = NULL; //Pop한 Top의 주소를 제거하기 위함
     }
-
     return TopNode;
 }
 
@@ -82,7 +79,6 @@ int LLS_GetSize(LinkedListStack* Stack) {
         Current = Current->NextNode;
         Count++;
     }
-
     return Count;
 }
 
